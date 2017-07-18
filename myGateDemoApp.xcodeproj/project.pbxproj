@@ -14,6 +14,8 @@
 		0897D18D1F1B8A740021AF5D /* MyGate_LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0897D18B1F1B8A740021AF5D /* MyGate_LaunchScreen.storyboard */; };
 		0897D1961F1B9F460021AF5D /* ContactDetailsMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0897D1941F1B9F460021AF5D /* ContactDetailsMainTableViewCell.swift */; };
 		0897D1971F1B9F460021AF5D /* ContactDetailsMainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0897D1951F1B9F460021AF5D /* ContactDetailsMainTableViewCell.xib */; };
+		0897D19A1F1D2BA10021AF5D /* SelectedContactsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0897D1981F1D2BA10021AF5D /* SelectedContactsCollectionViewCell.swift */; };
+		0897D19B1F1D2BA10021AF5D /* SelectedContactsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0897D1991F1D2BA10021AF5D /* SelectedContactsCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		0897D18E1F1B8A740021AF5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0897D1941F1B9F460021AF5D /* ContactDetailsMainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactDetailsMainTableViewCell.swift; sourceTree = "<group>"; };
 		0897D1951F1B9F460021AF5D /* ContactDetailsMainTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactDetailsMainTableViewCell.xib; sourceTree = "<group>"; };
+		0897D1981F1D2BA10021AF5D /* SelectedContactsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedContactsCollectionViewCell.swift; sourceTree = "<group>"; };
+		0897D1991F1D2BA10021AF5D /* SelectedContactsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectedContactsCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				0897D1861F1B8A740021AF5D /* MyGate_Main.storyboard */,
 				0897D1941F1B9F460021AF5D /* ContactDetailsMainTableViewCell.swift */,
 				0897D1951F1B9F460021AF5D /* ContactDetailsMainTableViewCell.xib */,
+				0897D1981F1D2BA10021AF5D /* SelectedContactsCollectionViewCell.swift */,
+				0897D1991F1D2BA10021AF5D /* SelectedContactsCollectionViewCell.xib */,
 				0897D1891F1B8A740021AF5D /* Assets.xcassets */,
 				0897D18B1F1B8A740021AF5D /* MyGate_LaunchScreen.storyboard */,
 				0897D18E1F1B8A740021AF5D /* Info.plist */,
@@ -133,6 +139,7 @@
 				0897D18A1F1B8A740021AF5D /* Assets.xcassets in Resources */,
 				0897D1971F1B9F460021AF5D /* ContactDetailsMainTableViewCell.xib in Resources */,
 				0897D1881F1B8A740021AF5D /* MyGate_Main.storyboard in Resources */,
+				0897D19B1F1D2BA10021AF5D /* SelectedContactsCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +152,7 @@
 			files = (
 				0897D1851F1B8A740021AF5D /* ContactsMainViewController.swift in Sources */,
 				0897D1961F1B9F460021AF5D /* ContactDetailsMainTableViewCell.swift in Sources */,
+				0897D19A1F1D2BA10021AF5D /* SelectedContactsCollectionViewCell.swift in Sources */,
 				0897D1831F1B8A740021AF5D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,6 +10,7 @@ import UIKit
 
 class ContactsMainViewController: UIViewController {
     
+    @IBOutlet weak var favouriteSelectedContactsMainCollectionView: UICollectionView!
     @IBOutlet weak var contactSearchMainSuperView: UIView!
     @IBOutlet weak var contactDetailsMainStackView: UIStackView!
     @IBOutlet weak var contactDetailsTopFavouriteSuperView: UIView!
@@ -21,6 +22,10 @@ class ContactsMainViewController: UIViewController {
     
     fileprivate let searchBarController = UISearchController(searchResultsController: nil)
     fileprivate var mainContactsCellData: [[String: Any]]? = [[:]]
+    fileprivate var selectedContactDetailsData: [[String: Any]] = [["userName": "Tuhin", "userImage": "profileImage1"], ["userName": "Tuhin", "userImage": "profileImage2"], ["userName": "Tuhin", "userImage": "profileImage3"], ["userName": "Tuhin", "userImage": "profileImage4"], ["userName": "Tuhin", "userImage": "profileImage1"], ["userName": "Tuhin", "userImage": "profileImage1"], ["userName": "Tuhin", "userImage": "profileImage1"], ["userName": "Tuhin", "userImage": "profileImage1"], ["userName": "Tuhin", "userImage": "profileImage1"], ["userName": "Tuhin", "userImage": "profileImage1"]]
+    fileprivate var headerImageCollectionViewSizeOfCell: CGSize = CGSize()
+    fileprivate var mainTopCollectionViewHeight: CGFloat = (UIScreen.main.bounds.width * 60) / 100
+    fileprivate var rechargeTopImageCollectionViewFlowLayout = UICollectionViewFlowLayout()
 
     
     override func viewDidLoad() {
@@ -48,6 +53,10 @@ class ContactsMainViewController: UIViewController {
         contactDetailsMainTableView.delegate = self
         contactDetailsMainTableView.dataSource = self
         contactDetailsMainTableView.register(UINib(nibName: "ContactDetailsMainTableViewCell", bundle: nil), forCellReuseIdentifier: "contactDetailsMainTableViewCellId")
+        
+        favouriteSelectedContactsMainCollectionView.delegate = self
+        favouriteSelectedContactsMainCollectionView.dataSource = self
+        favouriteSelectedContactsMainCollectionView.register(UINib(nibName: "SelectedContactsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "selectedContactsCollectionViewCellId")
 
     }
     
@@ -55,6 +64,10 @@ class ContactsMainViewController: UIViewController {
         super.viewDidLayoutSubviews()
         searchBarController.searchBar.frame = contactSearchMainSuperView.frame
         contactSearchMainSuperView.addSubview(searchBarController.searchBar)
+        headerImageCollectionViewSizeOfCell = CGSize(width: 80, height: 80)
+        rechargeTopImageCollectionViewFlowLayout.scrollDirection = .horizontal
+        favouriteSelectedContactsMainCollectionView.setCollectionViewLayout(rechargeTopImageCollectionViewFlowLayout, animated: true)
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -203,3 +216,48 @@ extension ContactsMainViewController: UISearchControllerDelegate, UISearchResult
     }
 }
 
+extension ContactsMainViewController: UICollectionViewDelegate{
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
+        return headerImageCollectionViewSizeOfCell
+    }
+}
+
+
+
+extension ContactsMainViewController: UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 0
+    }
+    
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return selectedContactDetailsData.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        if let cellOfCollection = collectionView.dequeueReusableCell(withReuseIdentifier: "selectedContactsCollectionViewCellId", for: indexPath) as? SelectedContactsCollectionViewCell{
+            cellOfCollection.backgroundColor = UIColor.gray//ColorClass.singleTonForColorClass.slicePayViewControllerColor
+            cellOfCollection.selectedContactsNameLbl.text = "Tuhin"
+            cellOfCollection.selectedContactsNameLbl.textColor = UIColor.black
+//            let whichImageToLoadInCollectionView = collectionViewImageNames[indexPath.item]["nameOfImage"]
+//            
+//            cellOfCollection.rechargeTopBannerImageView.contentMode = .scaleAspectFill//.scaleToFill
+//            
+//            StyleAndDesignRelatedFunctionClass.singletonObjectForStyleClass.applyImageToImageView(onWhichImageView: cellOfCollection.rechargeTopBannerImageView, imageName: whichImageToLoadInCollectionView, urlString: nil)
+//            
+            return cellOfCollection
+        }else{
+            return UICollectionViewCell()
+        }
+    }
+}
