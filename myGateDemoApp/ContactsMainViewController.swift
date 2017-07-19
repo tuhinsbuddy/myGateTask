@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Contacts
 
 class ContactsMainViewController: UIViewController {
     
@@ -21,8 +22,10 @@ class ContactsMainViewController: UIViewController {
     @IBOutlet weak var contactDetailsMainSuperView: UIView!
     
     fileprivate let searchBarController = UISearchController(searchResultsController: nil)
-    fileprivate var mainContactsTableViewData: [[String: Any]]? = []
-    fileprivate var contactsCompleteDataFromDevice: [[String: Any]] = []
+    fileprivate var mainContactsTableViewData: [[String: Any]]? = [] //[["sectionHeader": "A", "sectionContactData": [[String: Any]]()]]
+    fileprivate var contactsCompleteDataFromDevice: [[String: Any]] = [] //[["userName": "Tuhin Samui", "userPhoneNumber": "+919126239323", "userProfileImage": UIImage(), "isUserSelected": false]]
+    fileprivate var contactListSectionHeaders: [[String]] = [[]]
+    
     fileprivate var searchedText: String = ""
 
     fileprivate var selectedContactDetailsData: [[String: Any]] = [["userName": "Tuhin", "userImage": "profileImage1"], ["userName": "Tuhin", "userImage": "profileImage2"], ["userName": "Tuhin", "userImage": "profileImage3"], ["userName": "Tuhin", "userImage": "profileImage4"], ["userName": "Tuhin", "userImage": "profileImage1"], ["userName": "Tuhin", "userImage": "profileImage1"], ["userName": "Tuhin", "userImage": "profileImage1"], ["userName": "Tuhin", "userImage": "profileImage1"], ["userName": "Tuhin", "userImage": "profileImage1"], ["userName": "Tuhin", "userImage": "profileImage1"]]
@@ -46,7 +49,7 @@ class ContactsMainViewController: UIViewController {
         searchBarController.delegate = self
         searchBarController.searchBar.delegate = self
         searchBarController.hidesNavigationBarDuringPresentation = true
-        searchBarController.searchResultsUpdater = self
+//        searchBarController.searchResultsUpdater = self
         searchBarController.dimsBackgroundDuringPresentation = false
         searchBarController.searchBar.sizeToFit()
         searchBarController.searchBar.backgroundImage = UIImage()
@@ -56,10 +59,16 @@ class ContactsMainViewController: UIViewController {
         contactDetailsMainTableView.delegate = self
         contactDetailsMainTableView.dataSource = self
         contactDetailsMainTableView.register(UINib(nibName: "ContactDetailsMainTableViewCell", bundle: nil), forCellReuseIdentifier: "contactDetailsMainTableViewCellId")
+        contactDetailsMainTableView.register(UINib(nibName: "ContactsTableViewHeaderCell", bundle: nil), forCellReuseIdentifier: "contactsTableViewHeaderCellId")
+
+        
         
         favouriteSelectedContactsMainCollectionView.delegate = self
         favouriteSelectedContactsMainCollectionView.dataSource = self
         favouriteSelectedContactsMainCollectionView.register(UINib(nibName: "SelectedContactsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "selectedContactsCollectionViewCellId")
+        
+
+        
 
     }
     
@@ -78,14 +87,128 @@ class ContactsMainViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    fileprivate var lastFetchedSection: Character? = nil
 
-    @IBAction func getAllContactsBtnAction(_ sender: UIButton) {
+    
+    fileprivate func prepareDataForTableView(rawUnfilteredContacts contactsData: [[String: Any]], onCompletion: (_ dataFormattingWithError: Bool) -> Void){
+        var contactDetailsOfSection: [[String: Any]] = []
+        if !contactsData.isEmpty || contactsData.count > 0{
+            mainContactsTableViewData?.removeAll()
+            lastFetchedSection = nil
+            for contactValue in contactsData {
+//                debugPrint(contactValue)
+
+                if lastFetchedSection == nil {
+                    contactDetailsOfSection.append(contactValue)
+
+                    if let userNameCheck = contactValue["userName"] as? String,
+                        !userNameCheck.isEmpty,
+                        let firstLetterCheck = userNameCheck.characters.first{
+//                        debugPrint(userNameCheck)
+                           lastFetchedSection = firstLetterCheck
+                }
+                } else {
+                    if let userNameCheck = contactValue["userName"] as? String,
+                        !userNameCheck.isEmpty{
+//                        debugPrint(lastFetchedSection)
+                        if let firstLetterCheck = userNameCheck.characters.first,
+                            let lastFetchedSectionCheck = lastFetchedSection,
+                            firstLetterCheck != lastFetchedSectionCheck{
+                            let mainContactTableViewDataWithSection: [String: Any] = ["sectionHeader": String(lastFetchedSectionCheck), "sectionContactData": contactDetailsOfSection]
+//                            debugPrint(mainContactTableViewDataWithSection)
+                            mainContactsTableViewData?.append(mainContactTableViewDataWithSection)
+//                            debugPrint(mainContactsTableViewData)
+                            contactDetailsOfSection.removeAll()
+                            contactDetailsOfSection.append(contactValue)
+                            lastFetchedSection = firstLetterCheck
+                        } else {
+                            contactDetailsOfSection.append(contactValue)
+                        }
+                    }
+                }
+            }
+        }
         
+        
+        if let mainContactsTableViewDataCheck = mainContactsTableViewData,
+            !mainContactsTableViewDataCheck.isEmpty{
+            debugPrint(mainContactsTableViewDataCheck)
+            onCompletion(false)
+        } else {
+            onCompletion(true)
+        }
         
         
     }
     
     
+    @IBAction func getAllContactsBtnAction(_ sender: UIButton) {
+        ContactFetchingTaskStruct.requestForAccessContacts(onCompletion: { finished in switch finished { //[unwoned self]
+        case true:
+            debugPrint("Contacts authenticated on this device!!")
+            DispatchQueue.main.async(execute: {
+                ContactFetchingTaskStruct.fetchContactsFromDevice(onCompletion: { completeFetchedContacts in
+                    
+                    ContactFetchingTaskStruct.handlePhoneContacts(mainContactsDataFromDevice: completeFetchedContacts, onCompletion: { [unowned self] userDetailsData in
+                        if !userDetailsData.isEmpty {
+                            self.contactsCompleteDataFromDevice = userDetailsData
+                            debugPrint(self.contactsCompleteDataFromDevice)
+                            self.prepareDataForTableView(rawUnfilteredContacts: self.contactsCompleteDataFromDevice, onCompletion: {finished in switch finished {
+                                case true:
+                                    debugPrint("Error formatting data for table!")
+                                
+                                case false:
+                                self.contactDetailsMainTableView.reloadData()
+                                self.flipViewScreen(firstViewObject: self.authenticationMainSuperView, secondViewObject: self.contactDetailsMainSuperView, isForward: true, timeDuration: 1.0)
+
+                                
+                                }
+                            
+                            })
+                            
+                        } else {
+                            self.contactsCompleteDataFromDevice.removeAll()
+                        }
+                        
+                        debugPrint(userDetailsData)
+                    })
+                
+                })
+                
+            })
+            
+            
+        case false:
+            debugPrint("Error authenticating contact on this device! Please allow this app on settings")
+            }
+        })
+        
+        
+    }
+    
+    
+    func flipViewScreen(firstViewObject firstView: UIView, secondViewObject secondView: UIView, isForward flipForward: Bool, timeDuration flipDuration: TimeInterval){
+        switch flipForward {
+        case true:
+            let transitionOptions: UIViewAnimationOptions = [.transitionFlipFromRight, .showHideTransitionViews]
+            UIView.transition(with: firstView, duration: flipDuration, options: transitionOptions, animations: {
+                firstView.isHidden = true
+            }, completion: nil)
+            
+            UIView.transition(with: secondView, duration: flipDuration, options: transitionOptions, animations: {
+                secondView.isHidden = false
+            }, completion: nil)
+        case false:
+            let transitionOptions: UIViewAnimationOptions = [.transitionFlipFromLeft, .showHideTransitionViews]
+            UIView.transition(with: secondView, duration: flipDuration, options: transitionOptions, animations: {
+                secondView.isHidden = true
+            }, completion: nil)
+            
+            UIView.transition(with: firstView, duration: flipDuration, options: transitionOptions, animations: {
+                firstView.isHidden = false
+            }, completion: nil)
+        }
+    }
     
     
     @objc fileprivate func filterContentForSearchText(textToSearch searchText: String) {
@@ -160,11 +283,18 @@ extension ContactsMainViewController: UITableViewDelegate{
 
 extension ContactsMainViewController: UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        if let mainContactsTableViewDataCheck = mainContactsTableViewData{
+            debugPrint(mainContactsTableViewDataCheck.count)
+            return mainContactsTableViewDataCheck.count
+        } else {
+            return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let mainContactsTableViewDataCheck = mainContactsTableViewData {
+        if let mainContactsTableViewDataCheck = mainContactsTableViewData?[section]["sectionContactData"] as? [[String: Any]],
+            !mainContactsTableViewDataCheck.isEmpty{
+            debugPrint(mainContactsTableViewDataCheck.count)
             return mainContactsTableViewDataCheck.count
         } else {
            return 0
@@ -179,50 +309,91 @@ extension ContactsMainViewController: UITableViewDataSource{
                 return UITableViewCell()
             }
     }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 20
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        if let headerView = tableView.dequeueReusableCell(withIdentifier: "contactsTableViewHeaderCellId") as? ContactsTableViewHeaderCell{
+            headerView.sectionMainSuperView.backgroundColor = UIColor.white
+            
+            if let sectionHeaderCheck = mainContactsTableViewData?[section]["sectionHeader"] as? String,
+                !sectionHeaderCheck.isEmpty{
+                debugPrint(sectionHeaderCheck)
+                headerView.sectionMainHeaderLbl.text = sectionHeaderCheck
+            } else {
+                headerView.sectionMainHeaderLbl.text = nil
+            }
+            return headerView
+        } else {
+            return UIView()
+        }
+    }
+    
 }
 
-extension ContactsMainViewController: UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate {
+extension ContactsMainViewController: UISearchBarDelegate, UISearchControllerDelegate { //UISearchResultsUpdating
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        if let searchText = searchBarController.searchBar.text,
+            searchText.isEmpty {
+            DispatchQueue.main.async(execute: {
+                self.prepareDataForTableView(rawUnfilteredContacts: self.contactsCompleteDataFromDevice, onCompletion: {finished in switch finished {
+                case true:
+                    debugPrint("Error formatting data for table!")
+                    
+                case false:
+                    self.contactDetailsMainTableView.reloadData()
+                    }
+                })
+            })
+            
+        }
+    }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        if let mainContactsCellDataCheck = mainContactsTableViewData,
-            !mainContactsCellDataCheck.isEmpty{
-            mainContactsTableViewData?.removeAll()
-        }
-        contactDetailsMainTableView.reloadData()
-    }
-    
-    
-    func updateSearchResults(for searchController: UISearchController) {
-//        if let searchText = searchBarController.searchBar.text,
-//            !searchText.isEmpty {
-////            debugPrint("\(searchText)")
-//            
-//            NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(filterContentForSearchText), object: searchText)
-//            
-//            self.perform(#selector(filterContentForSearchText), with: searchText, afterDelay: 0.4)
-//            
-//        } else {
-//            mainContactsTableViewData = contactsCompleteDataFromDevice
-//            contactDetailsMainTableView.reloadData()
+//        if let mainContactsCellDataCheck = mainContactsTableViewData,
+//            !mainContactsCellDataCheck.isEmpty{
+//            mainContactsTableViewData?.removeAll()
 //        }
-//        
-//        
+//        contactDetailsMainTableView.reloadData()
+        DispatchQueue.main.async(execute: {
+            self.prepareDataForTableView(rawUnfilteredContacts: self.contactsCompleteDataFromDevice, onCompletion: {finished in switch finished {
+            case true:
+                debugPrint("Error formatting data for table!")
+                
+            case false:
+                self.contactDetailsMainTableView.reloadData()
+                }
+            })
+        })
+        
+        
     }
-    
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if !searchText.isEmpty {
-//            debugPrint("\(searchText)")
+            //            debugPrint("\(searchText)")
             searchedText = searchText
             NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(filterContentForSearchText), object: searchBar)
             
-            self.perform(#selector(filterContentForSearchText), with: searchedText, afterDelay: 1.0)
+            self.perform(#selector(filterContentForSearchText), with: searchedText, afterDelay: 0.4)
             
         } else {
-            mainContactsTableViewData = contactsCompleteDataFromDevice
-            contactDetailsMainTableView.reloadData()
+            DispatchQueue.main.async(execute: {
+                self.prepareDataForTableView(rawUnfilteredContacts: self.contactsCompleteDataFromDevice, onCompletion: {finished in switch finished {
+                case true:
+                    debugPrint("Error formatting data for table!")
+                    
+                case false:
+                    self.contactDetailsMainTableView.reloadData()
+                    }
+                })
+            })
         }
-}
+    }
 }
 
 //extension ContactsMainViewController: UISearchControllerDelegate, UISearchResultsUpdating {

@@ -21,27 +21,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cZp-BX-pSg" userLabel="Authentication SuperView">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E3i-lM-ps7">
-                                        <rect key="frame" x="112" y="298" width="150" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="9PV-YI-681"/>
-                                            <constraint firstAttribute="width" constant="150" id="vEh-g5-Mbx"/>
-                                        </constraints>
-                                        <state key="normal" title="Get Contacts"/>
-                                        <connections>
-                                            <action selector="getAllContactsBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UDg-jt-CVt"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="E3i-lM-ps7" firstAttribute="centerY" secondItem="cZp-BX-pSg" secondAttribute="centerY" id="4Zg-gn-miz"/>
-                                    <constraint firstItem="E3i-lM-ps7" firstAttribute="centerX" secondItem="cZp-BX-pSg" secondAttribute="centerX" id="Nlo-hh-dDh"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M7a-Mz-9hV" userLabel="Contacts SuperView">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
@@ -126,6 +105,27 @@
                                     <constraint firstAttribute="trailing" secondItem="7fr-qQ-3ds" secondAttribute="trailing" id="HKO-Ol-BcI"/>
                                     <constraint firstItem="7fr-qQ-3ds" firstAttribute="top" secondItem="M7a-Mz-9hV" secondAttribute="top" id="WKL-EC-4dN"/>
                                     <constraint firstItem="7fr-qQ-3ds" firstAttribute="leading" secondItem="M7a-Mz-9hV" secondAttribute="leading" id="e6G-Cy-Vil"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cZp-BX-pSg" userLabel="Authentication SuperView">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E3i-lM-ps7">
+                                        <rect key="frame" x="112" y="298" width="150" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="9PV-YI-681"/>
+                                            <constraint firstAttribute="width" constant="150" id="vEh-g5-Mbx"/>
+                                        </constraints>
+                                        <state key="normal" title="Get Contacts"/>
+                                        <connections>
+                                            <action selector="getAllContactsBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UDg-jt-CVt"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="E3i-lM-ps7" firstAttribute="centerY" secondItem="cZp-BX-pSg" secondAttribute="centerY" id="4Zg-gn-miz"/>
+                                    <constraint firstItem="E3i-lM-ps7" firstAttribute="centerX" secondItem="cZp-BX-pSg" secondAttribute="centerX" id="Nlo-hh-dDh"/>
                                 </constraints>
                             </view>
                         </subviews>

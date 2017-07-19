@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		085E42C11F1F4FDE00D12983 /* ContactFetchingTaskSingletonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 085E42C01F1F4FDE00D12983 /* ContactFetchingTaskSingletonClass.swift */; };
+		085E42C41F1FCB7900D12983 /* ContactsTableViewHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 085E42C21F1FCB7900D12983 /* ContactsTableViewHeaderCell.swift */; };
+		085E42C51F1FCB7900D12983 /* ContactsTableViewHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 085E42C31F1FCB7900D12983 /* ContactsTableViewHeaderCell.xib */; };
 		0897D1831F1B8A740021AF5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0897D1821F1B8A740021AF5D /* AppDelegate.swift */; };
 		0897D1851F1B8A740021AF5D /* ContactsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0897D1841F1B8A740021AF5D /* ContactsMainViewController.swift */; };
 		0897D1881F1B8A740021AF5D /* MyGate_Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0897D1861F1B8A740021AF5D /* MyGate_Main.storyboard */; };
@@ -19,6 +22,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		085E42C01F1F4FDE00D12983 /* ContactFetchingTaskSingletonClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactFetchingTaskSingletonClass.swift; sourceTree = "<group>"; };
+		085E42C21F1FCB7900D12983 /* ContactsTableViewHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsTableViewHeaderCell.swift; sourceTree = "<group>"; };
+		085E42C31F1FCB7900D12983 /* ContactsTableViewHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactsTableViewHeaderCell.xib; sourceTree = "<group>"; };
 		0897D17F1F1B8A740021AF5D /* myGateDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myGateDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0897D1821F1B8A740021AF5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0897D1841F1B8A740021AF5D /* ContactsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsMainViewController.swift; sourceTree = "<group>"; };
@@ -63,12 +69,15 @@
 			isa = PBXGroup;
 			children = (
 				0897D1821F1B8A740021AF5D /* AppDelegate.swift */,
+				085E42C01F1F4FDE00D12983 /* ContactFetchingTaskSingletonClass.swift */,
 				0897D1841F1B8A740021AF5D /* ContactsMainViewController.swift */,
 				0897D1861F1B8A740021AF5D /* MyGate_Main.storyboard */,
 				0897D1941F1B9F460021AF5D /* ContactDetailsMainTableViewCell.swift */,
 				0897D1951F1B9F460021AF5D /* ContactDetailsMainTableViewCell.xib */,
 				0897D1981F1D2BA10021AF5D /* SelectedContactsCollectionViewCell.swift */,
 				0897D1991F1D2BA10021AF5D /* SelectedContactsCollectionViewCell.xib */,
+				085E42C21F1FCB7900D12983 /* ContactsTableViewHeaderCell.swift */,
+				085E42C31F1FCB7900D12983 /* ContactsTableViewHeaderCell.xib */,
 				0897D1891F1B8A740021AF5D /* Assets.xcassets */,
 				0897D18B1F1B8A740021AF5D /* MyGate_LaunchScreen.storyboard */,
 				0897D18E1F1B8A740021AF5D /* Info.plist */,
@@ -108,6 +117,7 @@
 				TargetAttributes = {
 					0897D17E1F1B8A740021AF5D = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = SF8GSFGS9K;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -136,6 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0897D18D1F1B8A740021AF5D /* MyGate_LaunchScreen.storyboard in Resources */,
+				085E42C51F1FCB7900D12983 /* ContactsTableViewHeaderCell.xib in Resources */,
 				0897D18A1F1B8A740021AF5D /* Assets.xcassets in Resources */,
 				0897D1971F1B9F460021AF5D /* ContactDetailsMainTableViewCell.xib in Resources */,
 				0897D1881F1B8A740021AF5D /* MyGate_Main.storyboard in Resources */,
@@ -151,7 +162,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0897D1851F1B8A740021AF5D /* ContactsMainViewController.swift in Sources */,
+				085E42C41F1FCB7900D12983 /* ContactsTableViewHeaderCell.swift in Sources */,
 				0897D1961F1B9F460021AF5D /* ContactDetailsMainTableViewCell.swift in Sources */,
+				085E42C11F1F4FDE00D12983 /* ContactFetchingTaskSingletonClass.swift in Sources */,
 				0897D19A1F1D2BA10021AF5D /* SelectedContactsCollectionViewCell.swift in Sources */,
 				0897D1831F1B8A740021AF5D /* AppDelegate.swift in Sources */,
 			);
@@ -201,6 +214,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -251,6 +265,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -276,6 +291,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = SF8GSFGS9K;
 				INFOPLIST_FILE = myGateDemoApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tuhin.samui.myGateDemoApp;
@@ -288,6 +305,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = SF8GSFGS9K;
 				INFOPLIST_FILE = myGateDemoApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tuhin.samui.myGateDemoApp;
