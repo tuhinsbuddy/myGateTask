@@ -21,7 +21,10 @@ class ContactsMainViewController: UIViewController {
     @IBOutlet weak var contactDetailsMainSuperView: UIView!
     
     fileprivate let searchBarController = UISearchController(searchResultsController: nil)
-    fileprivate var mainContactsCellData: [[String: Any]]? = [[:]]
+    fileprivate var mainContactsTableViewData: [[String: Any]]? = []
+    fileprivate var contactsCompleteDataFromDevice: [[String: Any]] = []
+    fileprivate var searchedText: String = ""
+
     fileprivate var selectedContactDetailsData: [[String: Any]] = [["userName": "Tuhin", "userImage": "profileImage1"], ["userName": "Tuhin", "userImage": "profileImage2"], ["userName": "Tuhin", "userImage": "profileImage3"], ["userName": "Tuhin", "userImage": "profileImage4"], ["userName": "Tuhin", "userImage": "profileImage1"], ["userName": "Tuhin", "userImage": "profileImage1"], ["userName": "Tuhin", "userImage": "profileImage1"], ["userName": "Tuhin", "userImage": "profileImage1"], ["userName": "Tuhin", "userImage": "profileImage1"], ["userName": "Tuhin", "userImage": "profileImage1"]]
     fileprivate var headerImageCollectionViewSizeOfCell: CGSize = CGSize()
     fileprivate var mainTopCollectionViewHeight: CGFloat = (UIScreen.main.bounds.width * 60) / 100
@@ -32,12 +35,12 @@ class ContactsMainViewController: UIViewController {
         super.viewDidLoad()
         
 
-        for _ in 0...10000 {
-            let dataToAppend: [String: Any] = ["nameString": "showLoader", "selected": false]
-            mainContactsCellData?.append(dataToAppend)
-        }
+//        for _ in 0...10000 {
+//            let dataToAppend: [String: Any] = ["nameString": "showLoader", "selected": false]
+//            mainContactsCellData?.append(dataToAppend)
+//        }
         
-        debugPrint(mainContactsCellData?.count)
+//        debugPrint(mainContactsCellData?.count)
         
         searchBarController.searchBar.returnKeyType = .done
         searchBarController.delegate = self
@@ -64,7 +67,7 @@ class ContactsMainViewController: UIViewController {
         super.viewDidLayoutSubviews()
         searchBarController.searchBar.frame = contactSearchMainSuperView.frame
         contactSearchMainSuperView.addSubview(searchBarController.searchBar)
-        headerImageCollectionViewSizeOfCell = CGSize(width: 80, height: 80)
+        headerImageCollectionViewSizeOfCell = CGSize(width: 70, height: 110)
         rechargeTopImageCollectionViewFlowLayout.scrollDirection = .horizontal
         favouriteSelectedContactsMainCollectionView.setCollectionViewLayout(rechargeTopImageCollectionViewFlowLayout, animated: true)
 
@@ -85,6 +88,31 @@ class ContactsMainViewController: UIViewController {
     
     
     
+    @objc fileprivate func filterContentForSearchText(textToSearch searchText: String) {
+        debugPrint(searchText)
+        if let mainContactsCellDataCheck = mainContactsTableViewData,
+            !mainContactsCellDataCheck.isEmpty{
+            mainContactsTableViewData?.removeAll()
+        }
+        
+            mainContactsTableViewData = contactsCompleteDataFromDevice.filter({contact in
+                if let acceptedName = (contact["nameString"] as? String)?.lowercased().contains(searchText.lowercased()) {
+                    return acceptedName
+                } else {
+                    return false
+                }
+            })
+        
+        if let mainContactsCellDataCheck = mainContactsTableViewData,
+            mainContactsCellDataCheck.isEmpty{
+            let noResultsFoundData: [[String : Any]] = [["nameString": "No result found!", "selected": false]]
+            mainContactsTableViewData = noResultsFoundData
+        }
+        
+        debugPrint(mainContactsTableViewData?.count)
+        
+        contactDetailsMainTableView.reloadData()
+    }
 }
 
 extension ContactsMainViewController: UITableViewDelegate{
@@ -136,7 +164,11 @@ extension ContactsMainViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        if let mainContactsTableViewDataCheck = mainContactsTableViewData {
+            return mainContactsTableViewDataCheck.count
+        } else {
+           return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -149,72 +181,59 @@ extension ContactsMainViewController: UITableViewDataSource{
     }
 }
 
-extension ContactsMainViewController: UISearchBarDelegate {
+extension ContactsMainViewController: UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate {
     
-    //    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
-    //        searchBarController.searchBar.backgroundImage = UIImage()
-    //        searchBarController.searchBar.backgroundColor = UIColor.clearColor()//ColorClass.singleTonForColorClass.slicePayViewControllerColor
-    //        searchBarController.searchBar.barTintColor = UIColor.clearColor()//ColorClass.singleTonForColorClass.slicePayViewControllerColor
-    //        searchBarController.searchBar.tintColor = ColorClass.singleTonForColorClass.slicePayPrimaryOrangeColor
-    //    }
-    
-//    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-//        switch currentSelectedIndex {
-//        case 0:
-//            if mainCellData != nil {
-//                var nameStringCheck: String = String()
-//                if let nameValueCheck: String = mainCellData?[0]["nameString"] as? String {
-//                    nameStringCheck = nameValueCheck
-//                }
-//                if mainCellData?.count != contactsTable.count || nameStringCheck == "showLoader" || nameStringCheck == "No result found!"{
-//                    mainCellData!.removeAll()
-//                    mainCellData = contactsTable
-//                }
-//            }
-//        case 1:
-//            if mainCellData != nil {
-//                var nameStringCheck: String = String()
-//                if let nameValueCheck: String = mainCellData?[0]["nameString"] as? String {
-//                    nameStringCheck = nameValueCheck
-//                }
-//                if mainCellData?.count != invitedContacts.count || nameStringCheck == "showLoader" || nameStringCheck == "No result found!"{
-//                    mainCellData!.removeAll()
-//                    mainCellData = invitedContacts
-//                }
-//            }
-//        case 2:
-//            if mainCellData != nil {
-//                var nameStringCheck: String = String()
-//                if let nameValueCheck: String = mainCellData?[0]["nameString"] as? String {
-//                    nameStringCheck = nameValueCheck
-//                }
-//                if mainCellData?.count != buddies.count || nameStringCheck == "showLoader" || nameStringCheck == "No result found!"{
-//                    mainCellData!.removeAll()
-//                    mainCellData = buddies
-//                }
-//            }
-//        default:
-//            debugPrint("Current Selected Index is not matching inside searchbar cancel delegate \(currentSelectedIndex)")
-//        }
-//        tableView.reloadData()
-//    }
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.isEmpty {
-//            reloadTableAsPerTheCurrentSegment()        }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        if let mainContactsCellDataCheck = mainContactsTableViewData,
+            !mainContactsCellDataCheck.isEmpty{
+            mainContactsTableViewData?.removeAll()
+        }
+        contactDetailsMainTableView.reloadData()
     }
+    
+    
+    func updateSearchResults(for searchController: UISearchController) {
+//        if let searchText = searchBarController.searchBar.text,
+//            !searchText.isEmpty {
+////            debugPrint("\(searchText)")
+//            
+//            NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(filterContentForSearchText), object: searchText)
+//            
+//            self.perform(#selector(filterContentForSearchText), with: searchText, afterDelay: 0.4)
+//            
+//        } else {
+//            mainContactsTableViewData = contactsCompleteDataFromDevice
+//            contactDetailsMainTableView.reloadData()
+//        }
+//        
+//        
+    }
+    
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if !searchText.isEmpty {
+//            debugPrint("\(searchText)")
+            searchedText = searchText
+            NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(filterContentForSearchText), object: searchBar)
+            
+            self.perform(#selector(filterContentForSearchText), with: searchedText, afterDelay: 1.0)
+            
+        } else {
+            mainContactsTableViewData = contactsCompleteDataFromDevice
+            contactDetailsMainTableView.reloadData()
+        }
 }
 }
 
-extension ContactsMainViewController: UISearchControllerDelegate, UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        if let searchText = searchBarController.searchBar.text {
-            if !searchText.isEmpty {
-                debugPrint("\(searchText)")
-//                filterContentForSearchText(searchController.searchBar.text!)
-            }
-        }
-    }
-}
+//extension ContactsMainViewController: UISearchControllerDelegate, UISearchResultsUpdating {
+//    func updateSearchResults(for searchController: UISearchController) {
+//        if let searchText = searchBarController.searchBar.text,
+//            !searchText.isEmpty {
+//                debugPrint("\(searchText)")
+////                filterContentForSearchText(textToSearch: searchText)
+//            }
+//    }
+//}
 
 extension ContactsMainViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView,
@@ -230,7 +249,7 @@ extension ContactsMainViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
-        return 0
+        return 10
     }
     
     
@@ -246,15 +265,11 @@ extension ContactsMainViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if let cellOfCollection = collectionView.dequeueReusableCell(withReuseIdentifier: "selectedContactsCollectionViewCellId", for: indexPath) as? SelectedContactsCollectionViewCell{
-            cellOfCollection.backgroundColor = UIColor.gray//ColorClass.singleTonForColorClass.slicePayViewControllerColor
+            cellOfCollection.backgroundColor = UIColor.clear
+            cellOfCollection.selectedContactsMainImageViewSuperView.backgroundColor = UIColor.red
             cellOfCollection.selectedContactsNameLbl.text = "Tuhin"
             cellOfCollection.selectedContactsNameLbl.textColor = UIColor.black
-//            let whichImageToLoadInCollectionView = collectionViewImageNames[indexPath.item]["nameOfImage"]
-//            
-//            cellOfCollection.rechargeTopBannerImageView.contentMode = .scaleAspectFill//.scaleToFill
-//            
-//            StyleAndDesignRelatedFunctionClass.singletonObjectForStyleClass.applyImageToImageView(onWhichImageView: cellOfCollection.rechargeTopBannerImageView, imageName: whichImageToLoadInCollectionView, urlString: nil)
-//            
+
             return cellOfCollection
         }else{
             return UICollectionViewCell()

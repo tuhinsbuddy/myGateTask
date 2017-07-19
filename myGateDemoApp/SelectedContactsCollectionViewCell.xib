@@ -18,34 +18,48 @@
                 <rect key="frame" x="0.0" y="0.0" width="330" height="172"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="uX2-L2-OgO">
-                        <rect key="frame" x="14" y="11" width="225" height="74"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gah-5v-1jj">
+                        <rect key="frame" x="5" y="10" width="320" height="122"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="I9X-ka-rW5">
-                                <rect key="frame" x="0.0" y="0.0" width="330" height="86"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="122"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKR-Dm-goY">
-                                <rect key="frame" x="0.0" y="86" width="330" height="86"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
-                    </stackView>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="I9X-ka-rW5" firstAttribute="centerX" secondItem="Gah-5v-1jj" secondAttribute="centerX" id="2iI-OH-qLo"/>
+                            <constraint firstAttribute="trailing" secondItem="I9X-ka-rW5" secondAttribute="trailing" id="Eyq-oo-IPa"/>
+                            <constraint firstItem="I9X-ka-rW5" firstAttribute="top" secondItem="Gah-5v-1jj" secondAttribute="top" id="MbK-Gu-1cB"/>
+                            <constraint firstItem="I9X-ka-rW5" firstAttribute="leading" secondItem="Gah-5v-1jj" secondAttribute="leading" id="bfJ-16-AR9"/>
+                            <constraint firstItem="I9X-ka-rW5" firstAttribute="centerY" secondItem="Gah-5v-1jj" secondAttribute="centerY" id="lDH-ua-oua"/>
+                            <constraint firstAttribute="bottom" secondItem="I9X-ka-rW5" secondAttribute="bottom" id="ueA-fe-ekn"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKR-Dm-goY">
+                        <rect key="frame" x="0.0" y="132" width="330" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="y4G-eh-UtR"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="uX2-L2-OgO" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Fit-cr-emS"/>
-                <constraint firstAttribute="trailing" secondItem="uX2-L2-OgO" secondAttribute="trailing" id="Fr2-6N-FQV"/>
-                <constraint firstItem="uX2-L2-OgO" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="bbP-Y1-TuL"/>
-                <constraint firstItem="uX2-L2-OgO" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="bbT-wE-Max"/>
-                <constraint firstItem="uX2-L2-OgO" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="mct-qq-9dU"/>
-                <constraint firstAttribute="bottom" secondItem="uX2-L2-OgO" secondAttribute="bottom" id="ybz-gs-NWS"/>
+                <constraint firstAttribute="trailing" secondItem="Gah-5v-1jj" secondAttribute="trailing" constant="5" id="Bgi-Ez-yln"/>
+                <constraint firstItem="Gah-5v-1jj" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="HVN-l4-neR"/>
+                <constraint firstItem="gKR-Dm-goY" firstAttribute="top" secondItem="Gah-5v-1jj" secondAttribute="bottom" id="Hwl-Bc-5aC"/>
+                <constraint firstAttribute="trailing" secondItem="gKR-Dm-goY" secondAttribute="trailing" id="JcM-3p-S2e"/>
+                <constraint firstItem="Gah-5v-1jj" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="VeW-Um-aKX"/>
+                <constraint firstItem="Gah-5v-1jj" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="jZD-OG-6B8"/>
+                <constraint firstItem="gKR-Dm-goY" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="oa4-yn-nhu"/>
+                <constraint firstAttribute="bottom" secondItem="gKR-Dm-goY" secondAttribute="bottom" constant="10" id="zJY-NI-BJ5"/>
             </constraints>
             <size key="customSize" width="330" height="172"/>
             <connections>
-                <outlet property="selectedContactDetailsMainStackView" destination="uX2-L2-OgO" id="l5g-04-Sf0"/>
                 <outlet property="selectedContactsMainImageView" destination="I9X-ka-rW5" id="cSN-DE-0z1"/>
+                <outlet property="selectedContactsMainImageViewSuperView" destination="Gah-5v-1jj" id="Shr-HR-anA"/>
                 <outlet property="selectedContactsNameLbl" destination="gKR-Dm-goY" id="Tcg-gQ-uwe"/>
             </connections>
             <point key="canvasLocation" x="20" y="111"/>

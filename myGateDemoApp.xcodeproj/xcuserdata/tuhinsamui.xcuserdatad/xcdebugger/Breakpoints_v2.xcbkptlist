@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "myGateDemoApp/ContactsMainViewController.swift"
-            timestampString = "522006677.653237"
+            timestampString = "522078907.850899"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "211"
-            endingLineNumber = "211"
-            landmarkName = "updateSearchResults(for:)"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
+            landmarkName = "filterContentForSearchText(textToSearch:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "myGateDemoApp/ContactsMainViewController.swift"
-            timestampString = "522006677.653237"
+            timestampString = "522078907.850899"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "filterContentForSearchText(textToSearch:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -42,13 +42,45 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "myGateDemoApp/ContactsMainViewController.swift"
-            timestampString = "522006677.653237"
+            timestampString = "522078907.850899"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "filterContentForSearchText(textToSearch:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "myGateDemoApp.ContactsMainViewController.(filterContentForSearchText in _42CFEDF5F77C02DB0088648B5CE64D90) (textToSearch : Swift.String) -&gt; ()"
+                  moduleName = "myGateDemoApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tuhinsamui/Desktop/BuddyiOSApp/Test%20Project/MyGate%20Task/myGateTask/myGateDemoApp/ContactsMainViewController.swift"
+                  timestampString = "522078907.996599"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "93"
+                  endingLineNumber = "93"
+                  offsetFromSymbolStart = "260">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "myGateDemoApp.ContactsMainViewController.(filterContentForSearchText in _42CFEDF5F77C02DB0088648B5CE64D90) (textToSearch : Swift.String) -&gt; ()"
+                  moduleName = "myGateDemoApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tuhinsamui/Desktop/BuddyiOSApp/Test%20Project/MyGate%20Task/myGateTask/myGateDemoApp/ContactsMainViewController.swift"
+                  timestampString = "522078908.002214"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "93"
+                  endingLineNumber = "93"
+                  offsetFromSymbolStart = "301">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
