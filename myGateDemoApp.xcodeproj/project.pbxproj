@@ -19,6 +19,7 @@
 		0897D1971F1B9F460021AF5D /* ContactDetailsMainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0897D1951F1B9F460021AF5D /* ContactDetailsMainTableViewCell.xib */; };
 		0897D19A1F1D2BA10021AF5D /* SelectedContactsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0897D1981F1D2BA10021AF5D /* SelectedContactsCollectionViewCell.swift */; };
 		0897D19B1F1D2BA10021AF5D /* SelectedContactsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0897D1991F1D2BA10021AF5D /* SelectedContactsCollectionViewCell.xib */; };
+		08B6BA5C1F20C4810081E197 /* GenericFunctionRelatedStructFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B6BA5B1F20C4810081E197 /* GenericFunctionRelatedStructFile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		0897D1951F1B9F460021AF5D /* ContactDetailsMainTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactDetailsMainTableViewCell.xib; sourceTree = "<group>"; };
 		0897D1981F1D2BA10021AF5D /* SelectedContactsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedContactsCollectionViewCell.swift; sourceTree = "<group>"; };
 		0897D1991F1D2BA10021AF5D /* SelectedContactsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectedContactsCollectionViewCell.xib; sourceTree = "<group>"; };
+		08B6BA5B1F20C4810081E197 /* GenericFunctionRelatedStructFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericFunctionRelatedStructFile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				0897D1821F1B8A740021AF5D /* AppDelegate.swift */,
 				085E42C01F1F4FDE00D12983 /* ContactFetchingTaskSingletonClass.swift */,
 				0897D1841F1B8A740021AF5D /* ContactsMainViewController.swift */,
+				08B6BA5B1F20C4810081E197 /* GenericFunctionRelatedStructFile.swift */,
 				0897D1861F1B8A740021AF5D /* MyGate_Main.storyboard */,
 				0897D1941F1B9F460021AF5D /* ContactDetailsMainTableViewCell.swift */,
 				0897D1951F1B9F460021AF5D /* ContactDetailsMainTableViewCell.xib */,
@@ -167,6 +170,7 @@
 				085E42C11F1F4FDE00D12983 /* ContactFetchingTaskSingletonClass.swift in Sources */,
 				0897D19A1F1D2BA10021AF5D /* SelectedContactsCollectionViewCell.swift in Sources */,
 				0897D1831F1B8A740021AF5D /* AppDelegate.swift in Sources */,
+				08B6BA5C1F20C4810081E197 /* GenericFunctionRelatedStructFile.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

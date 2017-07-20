@@ -87,59 +87,59 @@ class ContactsMainViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    fileprivate var lastFetchedSection: Character? = nil
+//    fileprivate var lastFetchedSection: Character? = nil
 
     
-    fileprivate func prepareDataForTableView(rawUnfilteredContacts contactsData: [[String: Any]], onCompletion: (_ dataFormattingWithError: Bool) -> Void){
-        var contactDetailsOfSection: [[String: Any]] = []
-        if !contactsData.isEmpty || contactsData.count > 0{
-            mainContactsTableViewData?.removeAll()
-            lastFetchedSection = nil
-            for contactValue in contactsData {
-//                debugPrint(contactValue)
-
-                if lastFetchedSection == nil {
-                    contactDetailsOfSection.append(contactValue)
-
-                    if let userNameCheck = contactValue["userName"] as? String,
-                        !userNameCheck.isEmpty,
-                        let firstLetterCheck = userNameCheck.characters.first{
-//                        debugPrint(userNameCheck)
-                           lastFetchedSection = firstLetterCheck
-                }
-                } else {
-                    if let userNameCheck = contactValue["userName"] as? String,
-                        !userNameCheck.isEmpty{
-//                        debugPrint(lastFetchedSection)
-                        if let firstLetterCheck = userNameCheck.characters.first,
-                            let lastFetchedSectionCheck = lastFetchedSection,
-                            firstLetterCheck != lastFetchedSectionCheck{
-                            let mainContactTableViewDataWithSection: [String: Any] = ["sectionHeader": String(lastFetchedSectionCheck), "sectionContactData": contactDetailsOfSection]
-//                            debugPrint(mainContactTableViewDataWithSection)
-                            mainContactsTableViewData?.append(mainContactTableViewDataWithSection)
-//                            debugPrint(mainContactsTableViewData)
-                            contactDetailsOfSection.removeAll()
-                            contactDetailsOfSection.append(contactValue)
-                            lastFetchedSection = firstLetterCheck
-                        } else {
-                            contactDetailsOfSection.append(contactValue)
-                        }
-                    }
-                }
-            }
-        }
-        
-        
-        if let mainContactsTableViewDataCheck = mainContactsTableViewData,
-            !mainContactsTableViewDataCheck.isEmpty{
-            debugPrint(mainContactsTableViewDataCheck)
-            onCompletion(false)
-        } else {
-            onCompletion(true)
-        }
-        
-        
-    }
+//    fileprivate func prepareDataForTableView(rawUnfilteredContacts contactsData: [[String: Any]], onCompletion: (_ dataFormattedWithError: Bool) -> Void){
+//        var contactDetailsOfSection: [[String: Any]] = []
+//        if !contactsData.isEmpty || contactsData.count > 0{
+//            mainContactsTableViewData?.removeAll()
+//            lastFetchedSection = nil
+//            for contactValue in contactsData {
+////                debugPrint(contactValue)
+//
+//                if lastFetchedSection == nil {
+//                    contactDetailsOfSection.append(contactValue)
+//
+//                    if let userNameCheck = contactValue["userName"] as? String,
+//                        !userNameCheck.isEmpty,
+//                        let firstLetterCheck = userNameCheck.characters.first{
+////                        debugPrint(userNameCheck)
+//                           lastFetchedSection = firstLetterCheck
+//                }
+//                } else {
+//                    if let userNameCheck = contactValue["userName"] as? String,
+//                        !userNameCheck.isEmpty{
+////                        debugPrint(lastFetchedSection)
+//                        if let firstLetterCheck = userNameCheck.characters.first,
+//                            let lastFetchedSectionCheck = lastFetchedSection,
+//                            firstLetterCheck != lastFetchedSectionCheck{
+//                            let mainContactTableViewDataWithSection: [String: Any] = ["sectionHeader": String(lastFetchedSectionCheck), "sectionContactData": contactDetailsOfSection]
+////                            debugPrint(mainContactTableViewDataWithSection)
+//                            mainContactsTableViewData?.append(mainContactTableViewDataWithSection)
+////                            debugPrint(mainContactsTableViewData)
+//                            contactDetailsOfSection.removeAll()
+//                            contactDetailsOfSection.append(contactValue)
+//                            lastFetchedSection = firstLetterCheck
+//                        } else {
+//                            contactDetailsOfSection.append(contactValue)
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//        
+//        
+//        if let mainContactsTableViewDataCheck = mainContactsTableViewData,
+//            !mainContactsTableViewDataCheck.isEmpty{
+//            debugPrint(mainContactsTableViewDataCheck)
+//            onCompletion(false)
+//        } else {
+//            onCompletion(true)
+//        }
+//        
+//        
+//    }
     
     
     @IBAction func getAllContactsBtnAction(_ sender: UIButton) {
@@ -153,15 +153,15 @@ class ContactsMainViewController: UIViewController {
                         if !userDetailsData.isEmpty {
                             self.contactsCompleteDataFromDevice = userDetailsData
                             debugPrint(self.contactsCompleteDataFromDevice)
-                            self.prepareDataForTableView(rawUnfilteredContacts: self.contactsCompleteDataFromDevice, onCompletion: {finished in switch finished {
+                            GenericFunctionRelatedStruct.prepareDataForTableView(rawUnfilteredContacts: self.contactsCompleteDataFromDevice, onCompletion: {(finished, responseData) in switch finished {
+                            
                                 case true:
                                     debugPrint("Error formatting data for table!")
                                 
                                 case false:
+                                self.mainContactsTableViewData = responseData
                                 self.contactDetailsMainTableView.reloadData()
                                 self.flipViewScreen(firstViewObject: self.authenticationMainSuperView, secondViewObject: self.contactDetailsMainSuperView, isForward: true, timeDuration: 1.0)
-
-                                
                                 }
                             
                             })
@@ -340,13 +340,16 @@ extension ContactsMainViewController: UISearchBarDelegate, UISearchControllerDel
         if let searchText = searchBarController.searchBar.text,
             searchText.isEmpty {
             DispatchQueue.main.async(execute: {
-                self.prepareDataForTableView(rawUnfilteredContacts: self.contactsCompleteDataFromDevice, onCompletion: {finished in switch finished {
+                GenericFunctionRelatedStruct.prepareDataForTableView(rawUnfilteredContacts: self.contactsCompleteDataFromDevice, onCompletion: {(finished, responseData) in switch finished {
+                    
                 case true:
                     debugPrint("Error formatting data for table!")
                     
                 case false:
+                    self.mainContactsTableViewData = responseData
                     self.contactDetailsMainTableView.reloadData()
                     }
+                    
                 })
             })
             
@@ -360,17 +363,17 @@ extension ContactsMainViewController: UISearchBarDelegate, UISearchControllerDel
 //        }
 //        contactDetailsMainTableView.reloadData()
         DispatchQueue.main.async(execute: {
-            self.prepareDataForTableView(rawUnfilteredContacts: self.contactsCompleteDataFromDevice, onCompletion: {finished in switch finished {
+            GenericFunctionRelatedStruct.prepareDataForTableView(rawUnfilteredContacts: self.contactsCompleteDataFromDevice, onCompletion: {(finished, responseData) in switch finished {
+                
             case true:
                 debugPrint("Error formatting data for table!")
                 
             case false:
+                self.mainContactsTableViewData = responseData
                 self.contactDetailsMainTableView.reloadData()
                 }
             })
         })
-        
-        
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -383,11 +386,13 @@ extension ContactsMainViewController: UISearchBarDelegate, UISearchControllerDel
             
         } else {
             DispatchQueue.main.async(execute: {
-                self.prepareDataForTableView(rawUnfilteredContacts: self.contactsCompleteDataFromDevice, onCompletion: {finished in switch finished {
+                GenericFunctionRelatedStruct.prepareDataForTableView(rawUnfilteredContacts: self.contactsCompleteDataFromDevice, onCompletion: {(finished, responseData) in switch finished {
+                    
                 case true:
                     debugPrint("Error formatting data for table!")
                     
                 case false:
+                    self.mainContactsTableViewData = responseData
                     self.contactDetailsMainTableView.reloadData()
                     }
                 })
