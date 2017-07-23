@@ -266,11 +266,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "myGateDemoApp/ContactsMainViewController.swift"
-            timestampString = "522482002.668598"
+            timestampString = "522487402.079187"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "297"
-            endingLineNumber = "297"
+            startingLineNumber = "286"
+            endingLineNumber = "286"
             landmarkName = "flipViewScreen(firstViewObject:secondViewObject:isForward:timeDuration:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -282,11 +282,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "myGateDemoApp/ContactsMainViewController.swift"
-            timestampString = "522482002.668598"
+            timestampString = "522487402.079187"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "299"
-            endingLineNumber = "299"
+            startingLineNumber = "288"
+            endingLineNumber = "288"
             landmarkName = "flipViewScreen(firstViewObject:secondViewObject:isForward:timeDuration:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -298,11 +298,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "myGateDemoApp/ContactsMainViewController.swift"
-            timestampString = "522485349.365967"
+            timestampString = "522489741.770209"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "485"
-            endingLineNumber = "485"
+            startingLineNumber = "490"
+            endingLineNumber = "490"
             landmarkName = "tableView(_:viewForHeaderInSection:)"
             landmarkType = "7">
          </BreakpointContent>

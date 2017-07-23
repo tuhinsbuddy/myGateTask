@@ -312,11 +312,25 @@ class ContactsMainViewController: UIViewController {
         mainContactsTableViewData?.removeAll()
         DispatchQueue.main.async(execute: {
             
+            
             self.mainContactsTableViewData = self.contactsCompleteDataFromDevice.filter({contact in
                 if let acceptedName = (contact["userName"] as? String)?.lowercased().contains(searchText.lowercased()) {
-                    return acceptedName
+                    switch acceptedName {
+                    case true:
+                        return acceptedName
+                    case false:
+                        if let acceptedNumber = (contact["userPhoneNumber"] as? String)?.lowercased().contains(searchText.lowercased()) {
+                            return acceptedNumber
+                        } else {
+                            return false
+                        }
+                    }
                 } else {
-                    return false
+                    if let acceptedName = (contact["userPhoneNumber"] as? String)?.lowercased().contains(searchText.lowercased()) {
+                        return acceptedName
+                    } else {
+                        return false
+                    }
                 }
             })
             
