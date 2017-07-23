@@ -64,10 +64,10 @@
 		0897D1761F1B8A740021AF5D = {
 			isa = PBXGroup;
 			children = (
-				0897D1811F1B8A740021AF5D /* myGateDemoApp */,
-				0897D1801F1B8A740021AF5D /* Products */,
-				918F4AAE3769C545A7776EC9 /* Pods */,
 				262DEC08B25E70C236947561 /* Frameworks */,
+				918F4AAE3769C545A7776EC9 /* Pods */,
+				0897D1801F1B8A740021AF5D /* Products */,
+				0897D1811F1B8A740021AF5D /* myGateDemoApp */,
 			);
 			sourceTree = "<group>";
 		};
@@ -82,9 +82,9 @@
 		0897D1811F1B8A740021AF5D /* myGateDemoApp */ = {
 			isa = PBXGroup;
 			children = (
+				08ED34111F20DD7900B29E18 /* Controllers */,
 				08ED340F1F20DD6100B29E18 /* Models */,
 				08ED34101F20DD7100B29E18 /* Views */,
-				08ED34111F20DD7900B29E18 /* Controllers */,
 				0897D1821F1B8A740021AF5D /* AppDelegate.swift */,
 				0897D1891F1B8A740021AF5D /* Assets.xcassets */,
 				0897D18E1F1B8A740021AF5D /* Info.plist */,
@@ -100,29 +100,32 @@
 				089AEF9C1F231CF200561FBA /* OtherExtensionsAndFunctionFile.swift */,
 			);
 			name = Models;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		08ED34101F20DD7100B29E18 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				0897D1861F1B8A740021AF5D /* MyGate_Main.storyboard */,
 				0897D1951F1B9F460021AF5D /* ContactDetailsMainTableViewCell.xib */,
-				0897D1991F1D2BA10021AF5D /* SelectedContactsCollectionViewCell.xib */,
 				085E42C31F1FCB7900D12983 /* ContactsTableViewHeaderCell.xib */,
 				0897D18B1F1B8A740021AF5D /* MyGate_LaunchScreen.storyboard */,
+				0897D1861F1B8A740021AF5D /* MyGate_Main.storyboard */,
+				0897D1991F1D2BA10021AF5D /* SelectedContactsCollectionViewCell.xib */,
 			);
 			name = Views;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		08ED34111F20DD7900B29E18 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				0897D1841F1B8A740021AF5D /* ContactsMainViewController.swift */,
 				0897D1941F1B9F460021AF5D /* ContactDetailsMainTableViewCell.swift */,
-				0897D1981F1D2BA10021AF5D /* SelectedContactsCollectionViewCell.swift */,
+				0897D1841F1B8A740021AF5D /* ContactsMainViewController.swift */,
 				085E42C21F1FCB7900D12983 /* ContactsTableViewHeaderCell.swift */,
+				0897D1981F1D2BA10021AF5D /* SelectedContactsCollectionViewCell.swift */,
 			);
 			name = Controllers;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		262DEC08B25E70C236947561 /* Frameworks */ = {
@@ -289,6 +292,7 @@
 				0897D1871F1B8A740021AF5D /* Base */,
 			);
 			name = MyGate_Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		0897D18B1F1B8A740021AF5D /* MyGate_LaunchScreen.storyboard */ = {
@@ -297,6 +301,7 @@
 				0897D18C1F1B8A740021AF5D /* Base */,
 			);
 			name = MyGate_LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
