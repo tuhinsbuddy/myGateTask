@@ -35,7 +35,8 @@ class ContactsMainViewController: UIViewController {
     fileprivate var mainTopCollectionViewHeight: CGFloat = (UIScreen.main.bounds.width * 60) / 100
     fileprivate var rechargeTopImageCollectionViewFlowLayout = UICollectionViewFlowLayout()
     fileprivate var selectedIndexFromCollectionView: IndexPath = IndexPath()
-    
+    fileprivate var layOutManagedProperly: Bool = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
         expandOrCollapseTopCollectionView(isExpand: false, onFirstLoad: true)
@@ -59,11 +60,14 @@ class ContactsMainViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        if layOutManagedProperly != true {
+            layOutManagedProperly = true
         searchBarController.searchBar.frame = contactSearchMainSuperView.frame
         contactSearchMainSuperView.addSubview(searchBarController.searchBar)
         headerImageCollectionViewSizeOfCell = CGSize(width: 70, height: 110)
         rechargeTopImageCollectionViewFlowLayout.scrollDirection = .horizontal
         favouriteSelectedContactsMainCollectionView.collectionViewLayout = rechargeTopImageCollectionViewFlowLayout
+        }
     }
     
     override func didReceiveMemoryWarning() {
