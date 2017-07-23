@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -19,23 +19,23 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6xR-c1-Wo6">
-                        <rect key="frame" x="10" y="11" width="50" height="50"/>
+                        <rect key="frame" x="20" y="11" width="50" height="50"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="Avw-CT-YAP"/>
                             <constraint firstAttribute="width" constant="50" id="c3r-5e-h0r"/>
                         </constraints>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="9xH-HX-R40">
-                        <rect key="frame" x="68" y="11" width="377" height="50"/>
+                        <rect key="frame" x="78" y="11" width="339" height="50"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1os-dB-Wdp">
-                                <rect key="frame" x="0.0" y="0.0" width="377" height="25"/>
+                                <rect key="frame" x="0.0" y="0.0" width="339" height="25"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kjY-FG-2wK">
-                                <rect key="frame" x="0.0" y="25" width="377" height="25"/>
+                                <rect key="frame" x="0.0" y="25" width="339" height="25"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -45,15 +45,32 @@
                             <constraint firstAttribute="height" constant="50" id="WWy-hX-h5K"/>
                         </constraints>
                     </stackView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FdJ-MN-4Bh">
+                        <rect key="frame" x="425" y="26" width="20" height="20"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="Hhg-ZY-aCi"/>
+                            <constraint firstAttribute="height" constant="20" id="iEZ-ZL-rDc"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="6xR-c1-Wo6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="6dM-ge-nWd"/>
+                    <constraint firstItem="6xR-c1-Wo6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" symbolic="YES" id="6dM-ge-nWd"/>
+                    <constraint firstItem="FdJ-MN-4Bh" firstAttribute="leading" secondItem="9xH-HX-R40" secondAttribute="trailing" constant="8" symbolic="YES" id="71E-Cy-d6V"/>
                     <constraint firstItem="6xR-c1-Wo6" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="9nt-y3-qrR"/>
                     <constraint firstItem="9xH-HX-R40" firstAttribute="leading" secondItem="6xR-c1-Wo6" secondAttribute="trailing" constant="8" symbolic="YES" id="PWu-HH-bYw"/>
                     <constraint firstItem="9xH-HX-R40" firstAttribute="centerY" secondItem="6xR-c1-Wo6" secondAttribute="centerY" id="RHp-av-7e0"/>
-                    <constraint firstAttribute="trailing" secondItem="9xH-HX-R40" secondAttribute="trailing" constant="20" symbolic="YES" id="q0m-CH-CFs"/>
+                    <constraint firstItem="FdJ-MN-4Bh" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="rD8-ra-Igi"/>
+                    <constraint firstAttribute="trailing" secondItem="FdJ-MN-4Bh" secondAttribute="trailing" constant="20" symbolic="YES" id="x5R-uM-2HC"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="userContactDetailsCellSelectedSuperView" destination="FdJ-MN-4Bh" id="gms-Of-D8Y"/>
+                <outlet property="userContactDetailsMainProfileImageView" destination="6xR-c1-Wo6" id="EgW-cY-zzx"/>
+                <outlet property="userContactDetailsNameLbl" destination="1os-dB-Wdp" id="Hbj-YZ-zYF"/>
+                <outlet property="userContactDetailsNumberLbl" destination="kjY-FG-2wK" id="tWN-tJ-5qF"/>
+                <outlet property="userContactDetailsStackView" destination="9xH-HX-R40" id="phJ-dA-Msz"/>
+            </connections>
             <point key="canvasLocation" x="269.5" y="39"/>
         </tableViewCell>
     </objects>

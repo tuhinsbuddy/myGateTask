@@ -9,86 +9,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "myGateDemoApp/ContactsMainViewController.swift"
-            timestampString = "522181365.098112"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "237"
-            endingLineNumber = "237"
-            landmarkName = "filterContentForSearchText(textToSearch:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "myGateDemoApp/ContactsMainViewController.swift"
-            timestampString = "522181365.098112"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "235"
-            endingLineNumber = "235"
-            landmarkName = "filterContentForSearchText(textToSearch:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "myGateDemoApp/ContactsMainViewController.swift"
-            timestampString = "522181365.098112"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "216"
-            endingLineNumber = "216"
-            landmarkName = "filterContentForSearchText(textToSearch:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "myGateDemoApp.ContactsMainViewController.(filterContentForSearchText in _42CFEDF5F77C02DB0088648B5CE64D90) (textToSearch : Swift.String) -&gt; ()"
-                  moduleName = "myGateDemoApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tuhinsamui/Desktop/BuddyiOSApp/Test%20Project/MyGate%20Task/myGateTask/myGateDemoApp/ContactsMainViewController.swift"
-                  timestampString = "522244618.663277"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "216"
-                  endingLineNumber = "216"
-                  offsetFromSymbolStart = "260">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "myGateDemoApp.ContactsMainViewController.(filterContentForSearchText in _42CFEDF5F77C02DB0088648B5CE64D90) (textToSearch : Swift.String) -&gt; ()"
-                  moduleName = "myGateDemoApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tuhinsamui/Desktop/BuddyiOSApp/Test%20Project/MyGate%20Task/myGateTask/myGateDemoApp/ContactsMainViewController.swift"
-                  timestampString = "522244618.668317"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "216"
-                  endingLineNumber = "216"
-                  offsetFromSymbolStart = "301">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "myGateDemoApp/ContactFetchingTaskSingletonClass.swift"
             timestampString = "522162897.140689"
             startingColumnNumber = "9223372036854775807"
@@ -342,15 +262,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "myGateDemoApp/ContactsMainViewController.swift"
-            timestampString = "522181365.098112"
+            timestampString = "522482002.668598"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "191"
-            endingLineNumber = "191"
+            startingLineNumber = "297"
+            endingLineNumber = "297"
             landmarkName = "flipViewScreen(firstViewObject:secondViewObject:isForward:timeDuration:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -358,15 +278,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "myGateDemoApp/ContactsMainViewController.swift"
-            timestampString = "522181365.098112"
+            timestampString = "522482002.668598"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "193"
-            endingLineNumber = "193"
+            startingLineNumber = "299"
+            endingLineNumber = "299"
             landmarkName = "flipViewScreen(firstViewObject:secondViewObject:isForward:timeDuration:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -374,111 +294,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "myGateDemoApp/ContactsMainViewController.swift"
-            timestampString = "522181365.098112"
+            timestampString = "522485349.365967"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "319"
-            endingLineNumber = "319"
-            landmarkName = "tableView(_:viewForHeaderInSection:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "myGateDemoApp/ContactsMainViewController.swift"
-            timestampString = "522181365.098112"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "320"
-            endingLineNumber = "320"
-            landmarkName = "tableView(_:viewForHeaderInSection:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "myGateDemoApp/ContactsMainViewController.swift"
-            timestampString = "522181365.098112"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "321"
-            endingLineNumber = "321"
-            landmarkName = "tableView(_:viewForHeaderInSection:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "myGateDemoApp.ContactsMainViewController.tableView (__ObjC.UITableView, viewForHeaderInSection : Swift.Int) -&gt; Swift.Optional&lt;__ObjC.UIView&gt;"
-                  moduleName = "myGateDemoApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tuhinsamui/Desktop/BuddyiOSApp/Test%20Project/MyGate%20Task/myGateTask/myGateDemoApp/ContactsMainViewController.swift"
-                  timestampString = "522244618.714121"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "322"
-                  endingLineNumber = "322"
-                  offsetFromSymbolStart = "665">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "myGateDemoApp.ContactsMainViewController.tableView (__ObjC.UITableView, viewForHeaderInSection : Swift.Int) -&gt; Swift.Optional&lt;__ObjC.UIView&gt;"
-                  moduleName = "myGateDemoApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tuhinsamui/Desktop/BuddyiOSApp/Test%20Project/MyGate%20Task/myGateTask/myGateDemoApp/ContactsMainViewController.swift"
-                  timestampString = "522244618.715913"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "322"
-                  endingLineNumber = "322"
-                  offsetFromSymbolStart = "1336">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "myGateDemoApp/ContactsMainViewController.swift"
-            timestampString = "522181365.098112"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "325"
-            endingLineNumber = "325"
-            landmarkName = "tableView(_:viewForHeaderInSection:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "myGateDemoApp/ContactsMainViewController.swift"
-            timestampString = "522181365.098112"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "324"
-            endingLineNumber = "324"
+            startingLineNumber = "485"
+            endingLineNumber = "485"
             landmarkName = "tableView(_:viewForHeaderInSection:)"
             landmarkType = "7">
          </BreakpointContent>

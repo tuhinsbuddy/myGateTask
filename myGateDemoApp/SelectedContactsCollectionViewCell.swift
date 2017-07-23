@@ -16,6 +16,8 @@ class SelectedContactsCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.preservesSuperviewLayoutMargins = false
+        self.layoutMargins = .zero
         // Initialization code
     }
 

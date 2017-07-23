@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -36,7 +36,7 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKR-Dm-goY">
-                        <rect key="frame" x="0.0" y="132" width="330" height="30"/>
+                        <rect key="frame" x="5" y="132" width="320" height="30"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="y4G-eh-UtR"/>
                         </constraints>
@@ -47,13 +47,14 @@
                 </subviews>
             </view>
             <constraints>
+                <constraint firstItem="gKR-Dm-goY" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="7kR-E3-sC0"/>
                 <constraint firstAttribute="trailing" secondItem="Gah-5v-1jj" secondAttribute="trailing" constant="5" id="Bgi-Ez-yln"/>
                 <constraint firstItem="Gah-5v-1jj" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="HVN-l4-neR"/>
                 <constraint firstItem="gKR-Dm-goY" firstAttribute="top" secondItem="Gah-5v-1jj" secondAttribute="bottom" id="Hwl-Bc-5aC"/>
-                <constraint firstAttribute="trailing" secondItem="gKR-Dm-goY" secondAttribute="trailing" id="JcM-3p-S2e"/>
+                <constraint firstAttribute="trailing" secondItem="gKR-Dm-goY" secondAttribute="trailing" constant="5" id="JcM-3p-S2e"/>
                 <constraint firstItem="Gah-5v-1jj" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="VeW-Um-aKX"/>
                 <constraint firstItem="Gah-5v-1jj" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="jZD-OG-6B8"/>
-                <constraint firstItem="gKR-Dm-goY" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="oa4-yn-nhu"/>
+                <constraint firstItem="gKR-Dm-goY" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="oa4-yn-nhu"/>
                 <constraint firstAttribute="bottom" secondItem="gKR-Dm-goY" secondAttribute="bottom" constant="10" id="zJY-NI-BJ5"/>
             </constraints>
             <size key="customSize" width="330" height="172"/>
